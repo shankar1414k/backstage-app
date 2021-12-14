@@ -37,6 +37,7 @@ import { Root } from './components/Root';
 // import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { FlatRoutes } from '@backstage/core-app-api';
+import { MyPluginPage } from '@internal/plugin-my-plugin';
 
 const githubProvider: SignInProviderConfig = {
     id: 'github-auth-provider',
@@ -103,6 +104,7 @@ const routes = (
       {searchPage}
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
+    <Route path="/my-plugin" element={<MyPluginPage />}/>
   </FlatRoutes>
 );
 
