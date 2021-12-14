@@ -6,6 +6,15 @@ import {
   CatalogIndexPage,
   catalogPlugin,
 } from '@backstage/plugin-catalog';
+// Add the following imports to the existing list from core
+import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import {
+  AlertDisplay,
+  OAuthRequestDialog,
+  SignInProviderConfig,
+  SignInPage,
+} from '@backstage/core-components';
+
 import {
   CatalogImportPage,
   catalogImportPlugin,
@@ -25,12 +34,30 @@ import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
 
-import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
+// import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { FlatRoutes } from '@backstage/core-app-api';
 
+const githubProvider: SignInProviderConfig = {
+    id: 'github-auth-provider',
+    title: 'GitHub',
+    message: 'Sign in using GitHub',
+    apiRef: githubAuthApiRef,
+  };
+
 const app = createApp({
   apis,
+  components: {
+    SignInPage: props => {
+      return (
+        <SignInPage
+          {...props}
+          provider={githubProvider}
+          align="center"
+        />
+      );
+    },
+  },
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,

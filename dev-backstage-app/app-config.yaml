@@ -3,7 +3,7 @@ app:
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: CBRE Company
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -56,7 +56,11 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
+  providers: 
+    github:
+      development:
+        clientId: "fd016b1ee1bd6e6b2258"
+        clientSecret: "bd38e8710bf7008706437b4e5d5230cb7abc8b3e"
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
