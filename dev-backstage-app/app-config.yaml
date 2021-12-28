@@ -32,7 +32,7 @@ backend:
 integrations:
   github:
     - host: github.com
-      token: ${GITHUB_TOKEN}
+      token: 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 #${GITHUB_TOKEN}
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -60,7 +60,8 @@ auth:
     github:
       development:
         clientId: "fd016b1ee1bd6e6b2258"
-        clientSecret: "bd38e8710bf7008706437b4e5d5230cb7abc8b3e"
+        #clientSecret: "bd38e8710bf7008706437b4e5d5230cb7abc8b3e"
+        clientSecret: "9dc08e3815cf7f0f8324ec166cfa1ff297ffb24b"
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -103,6 +104,22 @@ catalog:
       rules:
         - allow: [Template]
     - type: url
-      target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/docs-template/template.yaml
+      target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/create-react-app/template.yaml
       rules:
         - allow: [Template]
+    - type: url
+      target: https://github.com/spotify/cookiecutter-golang/blob/master/template.yaml
+      rules:
+        - allow: [Template]   
+    - type: url
+      target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/rails-demo/template.yaml
+      rules:
+        - allow: [Template]  
+    - type: url
+      target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/pull-request/template.yaml 
+      rules:
+        - allow: [Template]  
+
+        
+
+        
